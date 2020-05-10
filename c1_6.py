@@ -55,8 +55,12 @@ c.createTrackbar('Sat Max', 'TrackBars', 255, 255, empty)
 c.createTrackbar('Val Min', 'TrackBars', 122, 255, empty)
 c.createTrackbar('Val Max', 'TrackBars', 255, 255, empty)
 
+cam = c.VideoCapture(0)
+
 while True:
-    img = c.imread('photos/yugioh.jpg')
+    #img = c.imread('photos/yugioh.jpg')
+    status, img = cam.read()
+
     imgHSV = c.cvtColor(img, c.COLOR_BGR2HSV)
 
     h_min = c.getTrackbarPos('Hue Min', 'TrackBars')
